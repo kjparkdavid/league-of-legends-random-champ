@@ -1,9 +1,12 @@
-<div class="loader-container" *ngIf="isLoading">
-  <img class="loader" [src]="loader" />
+<div class="image-with-loading-container">
+  <div class="loader-container" *ngIf="isLoading">
+    <img class="loader" [src]="loader" />
+  </div>
+  <img
+    class="image"
+    [src]="image"
+    [hidden]="isLoading"
+    (load)="hideLoader()"
+    (error)="hideLoader()"
+  />
 </div>
-<img
-  [src]="image"
-  [hidden]="isLoading"
-  (load)="hideLoader()"
-  (error)="hideLoader()"
-/>

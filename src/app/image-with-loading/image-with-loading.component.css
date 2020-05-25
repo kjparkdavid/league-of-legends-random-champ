@@ -1,3 +1,9 @@
+.image-with-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -6,6 +12,10 @@
 }
 
 .loader {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
+}
+
+.image {
+  width: 90%;
 }
