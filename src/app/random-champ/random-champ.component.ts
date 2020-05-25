@@ -12,7 +12,8 @@ import { Champion } from '../shared/champions/champions.model';
 })
 export class RandomChampComponent implements OnInit {
   champImg = '';
-  champLabel = '';
+  champName = '';
+  champTitle = '';
   buttonText = '';
   isLoading = false;
   randChamp: Champion;
@@ -35,12 +36,18 @@ export class RandomChampComponent implements OnInit {
 
   getRandomChamp() {
     this.randChamp = this.randChampService.generateRandomChampion();
+    console.log(this.randChamp);
   }
 
   setPageWithRandChamp() {
     this.champImg = this.randChampService.getChampionPortrait(
       this.randChamp.key
     );
-    this.champLabel = this.randChamp.name;
+    this.champName = this.randChamp.name;
+    this.champTitle = this.randChamp.title;
+  }
+
+  imageLoading(isImageLoading: boolean) {
+    this.isLoading = isImageLoading;
   }
 }

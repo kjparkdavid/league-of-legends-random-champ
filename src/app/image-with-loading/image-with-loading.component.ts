@@ -4,6 +4,8 @@ import {
   HostListener,
   OnChanges,
   SimpleChanges,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
@@ -14,16 +16,15 @@ import {
 export class ImageWithLoadingComponent implements OnChanges {
   @Input() loader: string =
     'https://media1.tenor.com/images/713a3272124cc57ba9e9fb7f59e9ab3b/tenor.gif';
-  @Input() height: number = 200;
-  @Input() width: number = 200;
   @Input() image: string;
+  @Output() imageLoading = new EventEmitter<boolean>();
 
   isLoading: boolean;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.image.currentValue !== changes.image.previousValue) {
-        this.isLoading = true;
-      console.log('image changed');
+      this.isLoading = true;
+      this.imageLoading.emit(this.isLoading);
     }
   }
 
@@ -33,5 +34,6 @@ export class ImageWithLoadingComponent implements OnChanges {
 
   hideLoader() {
     this.isLoading = false;
+    this.imageLoading.emit(this.isLoading);
   }
 }

@@ -1,6 +1,12 @@
 <div class="container">
   <h1>랜덤 챔피언 생성기</h1>
-  <image-with-loading [image]="champImg"></image-with-loading>
-  <h2>{{ champLabel }}</h2>
-  <button (click)="reroll()">다시 굴리기</button>
+  <image-with-loading
+    [image]="champImg"
+    (imageLoading)="imageLoading($event)"
+  ></image-with-loading>
+  <div class="label-button-container" *ngIf="!isLoading">
+    <h2 class="label">{{ champName }}</h2>
+    <p class="label">{{ champTitle }}</p>
+    <button class="reroll-button" (click)="reroll()">다시 굴리기</button>
+  </div>
 </div>

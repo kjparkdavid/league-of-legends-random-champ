@@ -6,6 +6,7 @@ export interface Champion {
     info: ChampionInfo;
     image: ChampionImage;
     tags: string[];
+    title: string;
 }
 
 export interface ChampionInfo {

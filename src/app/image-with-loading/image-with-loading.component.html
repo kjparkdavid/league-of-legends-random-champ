@@ -3,9 +3,7 @@
 </div>
 <img
   [src]="image"
-  [ngStyle]="{
-    visibility: isLoading ? 'hidden' : ''
-  }"
+  [hidden]="isLoading"
   (load)="hideLoader()"
   (error)="hideLoader()"
 />
