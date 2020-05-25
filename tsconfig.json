@@ -27,6 +27,7 @@
               "src/*.web.ts",
               "src/*.ts"
           ]
-      }
+      },
+      "resolveJsonModule": true
   }
 }

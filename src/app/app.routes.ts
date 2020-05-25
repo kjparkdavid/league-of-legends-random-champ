@@ -1,15 +1,14 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from '@src/app/home/home.component';
+import { RandomChampComponent } from "./random-champ/random-champ.component";
+import { ImageWithLoadingComponent } from './image-with-loading/image-with-loading.component';
 
 export const routes: Routes = [
-  {
-      path: '',
-      redirectTo: '/home',
-      pathMatch: 'full',
-  },
-  {
-      path: 'home',
-      component: HomeComponent,
-  },
+  { path: '', redirectTo: 'random-champ', pathMatch: 'full' },
+  { path: 'random-champ', component: RandomChampComponent },
+];
+
+export const navigatableComponents = [
+  RandomChampComponent,
+  ImageWithLoadingComponent
 ];

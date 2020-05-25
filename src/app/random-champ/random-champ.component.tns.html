@@ -1,0 +1,15 @@
+<FlexboxLayout>
+  <StackLayout class="form" [class.dark]="!isLoggingIn">
+    <Image
+      src="https://cdn.communitydragon.org/10.10.3216176/champion/266/portrait"
+    ></Image>
+
+    <Label [text]="champLabel" textWrap="true"></Label>
+
+    <Button
+      [text]="isLoggingIn ? 'Sign in' : 'Sign up'"
+      class="btn btn-primary"
+      (tap)="reroll()"
+    ></Button>
+  </StackLayout>
+</FlexboxLayout>
