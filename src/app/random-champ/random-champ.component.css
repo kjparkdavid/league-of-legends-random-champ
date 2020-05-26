@@ -6,6 +6,25 @@
   padding-bottom: 48px;
 }
 
+.image-container {
+  display: flex;
+}
+
+.image-margin {
+  margin-left: 66px;
+}
+
+.right-arrow-icon {
+  align-self: center;
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+.hide {
+  visibility: hidden;
+  margin-right: 24px;
+}
+
 .label-button-container {
   display: flex;
   flex-direction: column;
@@ -21,6 +40,7 @@
 
 @media only screen and (max-width: 600px) {
   .page-title {
+    font-size: 28px;
     width: 100%;
   }
 }
@@ -35,6 +55,20 @@
   display: inline-block;
   font-size: 16px;
   margin-top: 16px;
+  cursor: pointer;
+}
+
+.all-random-button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 16px;
+  cursor: pointer;
 }
 
 .label {

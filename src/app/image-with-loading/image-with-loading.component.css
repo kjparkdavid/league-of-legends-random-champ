@@ -19,3 +19,9 @@
 .image {
   width: 85%;
 }
+
+@media only screen and (max-width: 600px) {
+  .image {
+    width: 70%;
+  }
+}

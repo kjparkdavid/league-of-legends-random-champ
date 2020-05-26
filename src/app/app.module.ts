@@ -7,9 +7,10 @@ import { navigatableComponents } from './app.routes';
 import { ChampionService } from './shared/champions/champions.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import {default as EN }from './i18n/en';
-import {default as KO } from './i18n/ko';
+import { default as EN } from './i18n/en';
+import { default as KO } from './i18n/ko';
 
 @NgModule({
   declarations: [AppComponent, ...navigatableComponents],
@@ -20,6 +21,7 @@ import {default as KO } from './i18n/ko';
     TranslateModule.forRoot({
       defaultLanguage: 'en',
     }),
+    FontAwesomeModule,
   ],
   providers: [ChampionService],
   bootstrap: [AppComponent],

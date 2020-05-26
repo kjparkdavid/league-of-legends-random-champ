@@ -1,0 +1,77 @@
+{
+  "build": {
+    "attackSpeed": [
+      "Statikk Shiv",
+      "Trinity Force",
+      "Phantom Dancer",
+      "Guinsoo's Rageblade",
+      "Berserker's Greaves",
+      "Wit's End",
+      "Sanguine Blade",
+      "Blade of the Ruined King",
+      "Rapid Firecannon",
+      "Stormrazor"
+    ],
+    "lifeSteal": [
+      "Hextech Gunblade",
+      "Blade of the Ruined King",
+      "Sanguine Blade",
+      "Bloodthirster",
+      "Death's Dance",
+      "Wit's End",
+      "Mercurial Scimitar",
+      "Maw of Malmortius",
+      "Berserker's Greaves"
+    ],
+    "movementSpeed": [
+      "Stalker's Blade",
+      "Youmuu's Ghostblade",
+      "Boots of Mobility",
+      "Mercurial Scimitar",
+      "Righteous Glory",
+      "Shurelya's Reverie"
+    ],
+    "tank": [
+      "Dead Man's Plate",
+      "Randuin's Omen",
+      "Warmog's Armor",
+      "Thornmail",
+      "Gargoyle Stoneplate",
+      "Spirit Visage"
+    ],
+    "crit": [
+      "Infinity Edge",
+      "Cloak of Agility",
+      "Cloak of Agility",
+      "Cloak of Agility",
+      "Rapid Firecannon",
+      "Stormrazor",
+      "Runaan's Hurricane",
+      "Statikk Shiv"
+    ],
+    "armorPen": [
+      "Duskblade of Draktharr",
+      "Youmuu's Ghostblade",
+      "Black Cleaver",
+      "Lord Dominik's Regards",
+      "Edge of Night"
+    ],
+    "onlyConsumable": [
+      "Corrupting Potion",
+      "Elixir of Iron",
+      "Elixir of Sorcery",
+      "Elixir of Wrath",
+      "Refillable Potion",
+      "Health Potion",
+      "Control Ward"
+    ],
+    "onlyIE": [
+      "Infinity Edge",
+      "Infinity Edge",
+      "Infinity Edge",
+      "Infinity Edge",
+      "Infinity Edge",
+      "Infinity Edge"
+    ]
+  }
+}

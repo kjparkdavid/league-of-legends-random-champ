@@ -1,6 +1,7 @@
 export default {
-    "randomSelectScreen": {
-        "title": "League of Legends Random Champion Selector",
-        "reRollButton": "Re-roll"
-    }
-}
+  randomSelectScreen: {
+    title: 'League of Legends Random Champion Selector',
+    reRollButton: 'Re-roll',
+    allRandomButton: 'All Random',
+  },
+};
