@@ -14,16 +14,21 @@ import * as ChampionData from './ddragon.champion.json';
 export class ChampionService {
   championData: any; //object that contains all champion data
   latestVersion = ChampionData.version;
+  lang = 'ko_KR'; // en_US
 
   constructor(private http: HttpClient) {
     this.championData = ChampionData.data;
     this.getLatestVersion().subscribe((resp) => {
       this.latestVersion = resp[0];
-      // compare version if mismatch, update this.championData from the server
+      // compare major version if mismatch, update this.championData from the server
       if (
         parseInt(this.latestVersion, 10) === parseInt(ChampionData.version, 10)
       ) {
         console.log('latest version!');
+      } else {
+        this.getChampionData().subscribe((resp: any) => {
+          this.championData = resp.data;
+        });
       }
     });
   }
@@ -63,8 +68,23 @@ export class ChampionService {
     );
   }
 
-  // load champion json file
-  getChampionData() {}
+  /**
+   * @returns hhtp.get load champion json file
+   * example URL) http://ddragon.leagueoflegends.com/cdn/10.10.3216176/data/ko_KR/champion.json
+   *
+   */
+  getChampionData() {
+    return this.http
+      .get(
+        Config.ddragonURL +
+          '/cdn/' +
+          this.latestVersion +
+          '/data/' +
+          this.lang +
+          '/champion.json'
+      )
+      .pipe(catchError(this.handleErrors));
+  }
 
   /**
    * @returns number of champions in this.championData
