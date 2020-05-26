@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChampionService } from '../shared/champions/champions.service';
 import { Champion } from '../shared/champions/champions.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'random-champ',
@@ -15,17 +16,28 @@ export class RandomChampComponent implements OnInit {
   champName = '';
   champTitle = '';
   buttonText = '';
+  pageTitle = '';
   isLoading = false;
   randChamp: Champion;
 
   constructor(
     private router: Router,
-    private randChampService: ChampionService // private page: Page
-  ) {}
+    private randChampService: ChampionService, // private page: Page
+    private translate: TranslateService
+  ) {
+    this.pageTitle = translate.instant('randomSelectScreen.title');
+    this.buttonText = translate.instant('randomSelectScreen.reRollButton');
+  }
 
   ngOnInit() {
-    this.getRandomChamp();
-    this.setPageWithRandChamp();
+    this.randChampService
+      .getLocalChampData(this.translate.currentLang)
+      .subscribe((resp) => {
+        this.getRandomChamp();
+        this.setPageWithRandChamp();
+        this.randChampService.checkLocalVersionAndUpdate();
+      });
+
     // this.page.actionBarHidden = true;
   }
 
