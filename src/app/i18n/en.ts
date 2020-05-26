@@ -5,7 +5,7 @@ export default {
     allRandomButton: 'All Random',
   },
   allRandomScreen: {
-    title: 'All Random',
+    title: 'Random Lane and Build',
     lane: {
       top: 'Top',
       mid: 'Mid',

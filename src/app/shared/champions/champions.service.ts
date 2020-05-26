@@ -44,11 +44,9 @@ export class ChampionService {
       this.latestVersion = resp[0];
       // compare major version if mismatch, update this.championData from the server
       if (
-        parseInt(this.latestVersion, 10) ===
+        parseInt(this.latestVersion, 10) !==
         parseInt(this.championJSON.version, 10)
       ) {
-        console.log('latest version!');
-      } else {
         this.getLatestChampionData().subscribe((resp: any) => {
           this.championData = resp.data;
           this.championJSON = resp;
