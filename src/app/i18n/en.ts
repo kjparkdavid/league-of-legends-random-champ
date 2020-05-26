@@ -23,6 +23,6 @@ export default {
       onlyConsumable: 'Only Consumable',
       onlyIE: 'Only Infinity Edge'
     },
-    restartButton: 'Restart'
+    restartButton: 'Re-roll'
   },
 };

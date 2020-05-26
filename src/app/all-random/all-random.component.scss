@@ -1,0 +1,67 @@
+.page-container {
+  display: flex;
+}
+
+.left-div {
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-arrow-icon {
+  align-self: flex-end;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.container {
+  flex-grow: 3;
+  flex-basis: 0;
+}
+
+.champ-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep image-with-loading {
+  .image-with-loading-container {
+    width: 120px;
+    .image {
+      width: 100%;
+    }
+  }
+}
+
+.lane-img-container {
+  margin-left: 32px;
+}
+
+.lane-img {
+  width: 120px;
+}
+
+.label {
+  text-align: center;
+}
+
+.undo-icon {
+  margin-right: 8px;
+}
+
+.restart-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 16px;
+  cursor: pointer;
+}

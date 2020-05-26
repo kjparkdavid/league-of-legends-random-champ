@@ -30,6 +30,7 @@ export class ImageWithLoadingComponent implements OnChanges {
 
   constructor() {
     this.isLoading = true;
+
   }
 
   hideLoader() {

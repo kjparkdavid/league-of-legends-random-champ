@@ -3,12 +3,13 @@ import { ChampionService } from '../shared/champions/champions.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BuildService } from '../shared/build/build.service';
-import { faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faUndo, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
+import { Champion } from '../shared/champions/champions.model';
 
 @Component({
   selector: 'all-random',
   templateUrl: './all-random.component.html',
-  styleUrls: ['./all-random.component.css'],
+  styleUrls: ['./all-random.component.scss'],
 })
 export class AllRandomComponent {
   currentChampName = '';
@@ -25,6 +26,7 @@ export class AllRandomComponent {
   conceptText = '';
   restartButtonText = '';
   faIcon = faUndo;
+  faArrowIcon = faAngleDoubleLeft;
   laneImg = '';
 
   constructor(
@@ -107,6 +109,16 @@ export class AllRandomComponent {
   }
 
   restart() {
+    this.getRandomChamp();
+    this.setUpPage();
+    this.getLaneConceptAndSetPage();
+  }
+
+  getRandomChamp() {
+    this.currentChampName = this.randChampService.generateRandomChampion().id;
+  }
+
+  navigateToRandomChamp() {
     this.router.navigate(['/random-champ']);
   }
 }

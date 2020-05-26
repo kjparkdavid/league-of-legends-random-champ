@@ -1,5 +1,5 @@
 export interface Champion {
-    id: number;
+    id: string;
     name: string;
     key: number;
     blurb: string;

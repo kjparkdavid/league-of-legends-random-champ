@@ -23,6 +23,6 @@ export default {
       onlyConsumable: '올사용템',
       onlyIE: '6인피',
     },
-    restartButton: '다시 시작',
+    restartButton: '다시 굴리기',
   },
 };
