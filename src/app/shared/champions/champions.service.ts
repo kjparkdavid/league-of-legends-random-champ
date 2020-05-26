@@ -94,6 +94,21 @@ export class ChampionService {
   }
 
   /**
+   * @param key key value of the champion
+   * @returns champion squre URL
+   */
+  getChampionSquare(key: number) {
+    return (
+      Config.cdragonURL +
+      '/' +
+      this.latestVersion +
+      '/champion/' +
+      key +
+      '/square'
+    );
+  }
+
+  /**
    * @returns http.get load champion json file
    * example URL) http://ddragon.leagueoflegends.com/cdn/10.10.3216176/data/ko_KR/champion.json
    *

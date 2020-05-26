@@ -4,3 +4,11 @@ html,
 body {
   font-family: 'Jua', sans-serif;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 48px;
+}

@@ -9,7 +9,7 @@
     ></image-with-loading>
     <fa-icon
       role="button"
-      (click)="reroll()"
+      (click)="goToAllRandom()"
       class="right-arrow-icon"
       *ngIf="!isLoading"
       [icon]="faIcon"
@@ -21,7 +21,7 @@
     <h2 class="label">{{ champName }}</h2>
     <p class="label">{{ champTitle }}</p>
     <button class="reroll-button" (click)="reroll()">{{ buttonText }}</button>
-    <button class="all-random-button" (click)="reroll()">
+    <button class="all-random-button" (click)="goToAllRandom()">
       {{ allRandomBtnText }}
     </button>
   </div>

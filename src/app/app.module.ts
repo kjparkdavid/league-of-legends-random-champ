@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { default as EN } from './i18n/en';
 import { default as KO } from './i18n/ko';
+import { BuildService } from './shared/build/build.service';
 
 @NgModule({
   declarations: [AppComponent, ...navigatableComponents],
@@ -23,7 +24,7 @@ import { default as KO } from './i18n/ko';
     }),
     FontAwesomeModule,
   ],
-  providers: [ChampionService],
+  providers: [ChampionService, BuildService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

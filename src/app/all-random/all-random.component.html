@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="page-title">
+    All Random
+  </h1>
+  <div class="champ-container">
+    <div>
+      <image-with-loading
+        [image]="champSquare"
+        (imageLoading)="imageLoading($event)"
+      ></image-with-loading>
+
+      <p class="label" *ngIf="!isLoading">{{ champName }}</p>
+    </div>
+
+    <div *ngIf="!isLoading">
+      <img class="lane-img" [src]="laneImg" />
+      <p class="label">{{ laneText }}</p>
+    </div>
+  </div>
+
+  <h2 *ngIf="!isLoading">{{ conceptText }}</h2>
+
+  <button *ngIf="!isLoading" class="restart-button" (click)="restart()">
+    <fa-icon
+      class="undo-icon"
+      *ngIf="!isLoading"
+      [icon]="faIcon"
+      size="lg"
+    ></fa-icon
+    >{{ restartButtonText }}
+  </button>
+</div>

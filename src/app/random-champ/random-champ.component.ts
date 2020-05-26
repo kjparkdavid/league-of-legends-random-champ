@@ -19,7 +19,7 @@ export class RandomChampComponent implements OnInit {
   buttonText = '';
   allRandomBtnText = '';
   pageTitle = '';
-  isLoading = false;
+  isLoading = true;
   randChamp: Champion;
   faIcon = faAngleDoubleRight;
 
@@ -69,5 +69,9 @@ export class RandomChampComponent implements OnInit {
   imageLoading(isImageLoading: boolean) {
     this.isLoading = isImageLoading;
     this.cdr.detectChanges();
+  }
+
+  goToAllRandom() {
+    this.router.navigate(['/all-random', { name: this.randChamp.id }]);
   }
 }
