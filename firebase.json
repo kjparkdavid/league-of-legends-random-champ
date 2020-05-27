@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "randomchamp",
+    "public": "dist/randomChampShared",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

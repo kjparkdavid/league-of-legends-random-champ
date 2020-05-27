@@ -40,6 +40,10 @@
       ></fa-icon>
       {{ restartButtonText }}
     </button>
+
+    <button *ngIf="!isLoading" class="restart-button" (click)="restart()">
+      Customize Builds
+    </button>
   </div>
   <div class="left-div"></div>
 </div>

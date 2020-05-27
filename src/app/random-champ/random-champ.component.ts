@@ -55,7 +55,6 @@ export class RandomChampComponent implements OnInit {
 
   getRandomChamp() {
     this.randChamp = this.randChampService.generateRandomChampion();
-    console.log(this.randChamp);
   }
 
   setPageWithRandChamp() {

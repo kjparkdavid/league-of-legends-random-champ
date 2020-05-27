@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as ItemBuild from '../../../assets/data/item-build.json';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BuildService {
   concepts = [
     'crit',
