@@ -12,3 +12,7 @@ body {
   justify-content: center;
   padding-bottom: 48px;
 }
+
+.fas {
+  font-family: "FontAwesome", "Font Awesome 5 Free", "fa-solid-900";
+}

@@ -8,6 +8,7 @@ import { Config } from '../config';
 
 // import * as ChampionData from '../../../assets/data/ddragon.champion.ko.json';
 import { TranslateService } from '@ngx-translate/core';
+import { isAndroid, isIOS, device, screen } from 'tns-core-modules/platform';
 
 export const KO_KR = 'ko_KR';
 export const EN_US = 'en_US';
@@ -26,8 +27,8 @@ export class ChampionService {
   lang = KO_KR; // en_US
 
   constructor(private http: HttpClient, translate: TranslateService) {
-    let userLang = navigator.language;
-    
+    let userLang = device.language;
+
     // check language and load local champData
     if (userLang.indexOf('ko') >= 0) {
       this.lang = KO_KR;
@@ -47,7 +48,6 @@ export class ChampionService {
         parseInt(this.latestVersion, 10) !==
         parseInt(this.championJSON.version, 10)
       ) {
-        console.log('updating version');
         this.getLatestChampionData().subscribe((resp: any) => {
           this.championData = resp.data;
           this.championJSON = resp;
@@ -127,7 +127,7 @@ export class ChampionService {
 
   getLocalChampData(lang: string) {
     return this.http
-      .get('../../../assets/data/ddragon.champion.' + lang + '.json')
+      .get('~/assets/data/ddragon.champion.' + lang + '.json')
       .pipe(
         map((resp: any) => {
           this.championData = resp.data;

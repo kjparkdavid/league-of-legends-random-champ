@@ -1,15 +1,47 @@
-<FlexboxLayout>
-  <StackLayout class="form" [class.dark]="!isLoggingIn">
-    <Image
-      src="https://cdn.communitydragon.org/10.10.3216176/champion/266/portrait"
-    ></Image>
+<ScrollView>
+  <FlexboxLayout #container class="p-15">
+    <StackLayout class="content-container">
+      <label class="title" [text]="pageTitle" textWrap="true"></label>
 
-    <Label [text]="champLabel" textWrap="true"></Label>
+      <GridLayout columns="*, auto, *" rows="auto">
+        <label col="0" text=""></label>
+        <image
+          col="1"
+          #dragImage
+          class="champ-image m-t-24"
+          [src]="champImg"
+          stretch="aspectFit"
+          (pan)="onPan($event)"
+        ></image>
 
-    <Button
-      [text]="isLoggingIn ? 'Sign in' : 'Sign up'"
-      class="btn btn-primary"
-      (tap)="reroll()"
-    ></Button>
-  </StackLayout>
-</FlexboxLayout>
+        <label
+          col="2"
+          verticalAlignment="center"
+          class="fas right-arrow"
+          text="&#xf101;"
+        ></label>
+      </GridLayout>
+
+      <label
+        class="champ-name m-t-24"
+        [text]="champName"
+        textWrap="true"
+      ></label>
+      <label class="champ-title" [text]="champTitle" textWrap="true"></label>
+
+      <StackLayout orientation="horizontal" horizontalAlignment="center">
+        <button
+          [text]="buttonText"
+          class="btn btn-primary"
+          (tap)="reroll()"
+        ></button>
+
+        <button
+          [text]="allRandomBtnText"
+          class="btn btn-primary"
+          (tap)="goToAllRandom()"
+        ></button>
+      </StackLayout>
+    </StackLayout>
+  </FlexboxLayout>
+</ScrollView>

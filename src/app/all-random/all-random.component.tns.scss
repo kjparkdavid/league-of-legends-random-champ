@@ -11,25 +11,17 @@ FlexboxLayout {
   text-align: center;
 }
 
-.champ-image {
+.champ-container {
   width: 50%;
-  z-index: 5;
+  padding: 32px;
 }
-.champ-name {
+
+.champ-label {
   font-weight: bold;
   font-size: 24px;
   text-align: center;
 }
-.champ-title {
-  text-align: center;
-  font-size: 16px;
-}
 
-.fas {
-  font-family: "FontAwesome", "fontawesome-webfont";
-}
-
-.right-arrow {
-  font-size: 32px;
-  margin-left: 48px;
+.lane-container {
+  width: 30%;
 }

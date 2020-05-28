@@ -1,0 +1,26 @@
+<ActionBar [title]="pageTitle"></ActionBar>
+<FlexboxLayout>
+  <StackLayout>
+    <!-- <label class="title" [text]="pageTitle" textWrap="true"></label> -->
+
+    <GridLayout columns="auto, auto" rows="auto" class="add-bar">
+      <StackLayout col="0" row="0" class="champ-container">
+        <image class="champ-image" [src]="champSquare"></image>
+        <label class="champ-label" [text]="champName" textWrap="true"></label>
+      </StackLayout>
+
+      <StackLayout col="1" row="0" class="lane-container">
+        <image class="lane-image" [src]="laneImg"></image>
+        <label class="champ-label" [text]="laneText" textWrap="true"></label>
+      </StackLayout>
+    </GridLayout>
+
+    <label class="title" [text]="conceptText" textWrap="true"></label>
+
+    <button
+      [text]="restartButtonText"
+      class="btn btn-primary"
+      (tap)="restart()"
+    ></button>
+  </StackLayout>
+</FlexboxLayout>
