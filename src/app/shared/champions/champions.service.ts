@@ -26,8 +26,8 @@ export class ChampionService {
   lang = KO_KR; // en_US
 
   constructor(private http: HttpClient, translate: TranslateService) {
-    let userLang = navigator.language;
-    
+    let userLang = translate.getBrowserLang();
+    console.log(userLang);
     // check language and load local champData
     if (userLang.indexOf('ko') >= 0) {
       this.lang = KO_KR;

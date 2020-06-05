@@ -8,6 +8,11 @@ $dark-blue: #11569a;
   width: 100%;
   height: 100%;
 }
+
+.container-height {
+  height: 100vh;
+}
+
 :host ::ng-deep {
   .title-random {
     color: $emerald;
@@ -19,6 +24,8 @@ $dark-blue: #11569a;
     font-weight: 700;
   }
 }
+
+
 
 .logo {
   position: absolute;
