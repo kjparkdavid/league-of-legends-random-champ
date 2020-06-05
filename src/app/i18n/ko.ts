@@ -1,6 +1,6 @@
 export default {
   randomSelectScreen: {
-    title: '롤 랜덤 챔피언 생성기',
+    title: '롤 <span class="title-random">랜덤</span> 챔피언 생성기',
     reRollButton: '다시 굴리기',
     allRandomButton: '올 랜덤',
   },

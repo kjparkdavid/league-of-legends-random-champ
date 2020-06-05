@@ -1,25 +1,33 @@
 <div class="container">
-  <h1 class="page-title">{{ pageTitle }}</h1>
+  <img class="logo" src="../../assets/images/LOGO.png" />
+  <div class="title-container">
+    <h1 class="page-title" [innerHtml]="pageTitle"></h1>
+  </div>
 
-  <div class="image-container">
-    <image-with-loading
-      [ngClass]="{ 'image-margin': !isLoading }"
-      [image]="champImg"
-      (imageLoading)="imageLoading($event)"
-    ></image-with-loading>
-    <fa-icon
-      role="button"
-      (click)="goToAllRandom()"
-      class="right-arrow-icon"
-      *ngIf="!isLoading"
-      [icon]="faIcon"
-      size="3x"
-    ></fa-icon>
+  <div class="image-with-label">
+    <div class="image-container">
+      <image-with-loading
+        [ngClass]="{ 'image-margin': !isLoading }"
+        [image]="champImg"
+        (imageLoading)="imageLoading($event)"
+      ></image-with-loading>
+      <fa-icon
+        role="button"
+        (click)="goToAllRandom()"
+        class="right-arrow-icon"
+        *ngIf="!isLoading"
+        [icon]="faIcon"
+        size="3x"
+      ></fa-icon>
+    </div>
+
+    <div class="champ-label-container">
+      <h2 class="label">{{ champName }}</h2>
+      <p class="label">{{ champTitle }}</p>
+    </div>
   </div>
 
   <div class="label-button-container" *ngIf="!isLoading">
-    <h2 class="label">{{ champName }}</h2>
-    <p class="label">{{ champTitle }}</p>
     <button class="reroll-button" (click)="reroll()">{{ buttonText }}</button>
     <button class="all-random-button" (click)="goToAllRandom()">
       {{ allRandomBtnText }}

@@ -15,7 +15,7 @@ import {
 })
 export class ImageWithLoadingComponent implements OnChanges {
   @Input() loader: string =
-    'https://media1.tenor.com/images/713a3272124cc57ba9e9fb7f59e9ab3b/tenor.gif';
+    'https://media.giphy.com/media/KKCuBooszlPG0/giphy.gif';
   @Input() image: string;
   @Output() imageLoading = new EventEmitter<boolean>();
 

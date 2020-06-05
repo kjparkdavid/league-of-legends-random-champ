@@ -9,7 +9,7 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'random-champ',
   providers: [ChampionService],
-  styleUrls: ['./random-champ.component.css'],
+  styleUrls: ['./random-champ.component.scss'],
   templateUrl: './random-champ.component.html',
 })
 export class RandomChampComponent implements OnInit {

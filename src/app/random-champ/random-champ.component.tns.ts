@@ -20,7 +20,7 @@ import { AnimationCurve } from 'tns-core-modules/ui/enums';
 @Component({
   selector: 'random-champ',
   providers: [ChampionService],
-  styleUrls: ['./random-champ.component.css'],
+  styleUrls: ['./random-champ.component.scss'],
   templateUrl: './random-champ.component.html',
 })
 export class RandomChampComponent implements OnInit, AfterViewInit {
