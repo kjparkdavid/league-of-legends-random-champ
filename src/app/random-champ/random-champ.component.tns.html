@@ -1,18 +1,80 @@
 <ScrollView>
   <FlexboxLayout #container class="p-15">
     <StackLayout class="content-container">
-      <label class="title" [text]="pageTitle" textWrap="true"></label>
+      <GridLayout rows="auto, auto" columns="60, *, 60">
+        <image
+          col="0"
+          row="0"
+          class="logo"
+          src="~/assets/images/LOGO.png"
+        ></image>
+        <label
+          col="1"
+          row="0"
+          class="title title-random"
+          [text]="pageTitleRandom"
+          textWrap="true"
+        ></label>
+        <label
+          col="1"
+          row="1"
+          class="title"
+          [text]="pageTitle"
+          textWrap="true"
+        ></label>
+      </GridLayout>
 
       <GridLayout columns="*, auto, *" rows="auto">
         <label col="0" text=""></label>
-        <image
+
+        <GridLayout
+          columns="*"
+          rows="auto, auto"
           col="1"
           #dragImage
-          class="champ-image m-t-24"
-          [src]="champImg"
-          stretch="aspectFit"
           (pan)="onPan($event)"
-        ></image>
+          class="champ-image-container"
+        >
+          <WebImage
+            #champImage
+            row="0"
+            col="0"
+            [src]="champImg"
+            stretch="aspectFit"
+            class="champ-image"
+            placeholder="~/assets/images/generic.png"
+          >
+          </WebImage>
+
+          <!-- <image
+            col="0"
+            row="0"
+            class="champ-image"
+            [src]="champImg"
+            stretch="aspectFit"
+          ></image> -->
+
+          <label
+            *ngIf="!isLoading"
+            col="0"
+            row="1"
+            class="champ-name"
+            [text]="champName"
+            textWrap="true"
+            verticalAlignment="top"
+          ></label>
+
+          <image
+            col="0"
+            row="0"
+            rowSpan="2"
+            verticalAlignment="top"
+            class="overlay"
+            src="~/assets/images/BORDER2.png"
+          ></image>
+
+          
+        </GridLayout>
 
         <label
           col="2"
@@ -22,23 +84,27 @@
         ></label>
       </GridLayout>
 
-      <label
+      <!-- <label
         class="champ-name m-t-24"
         [text]="champName"
         textWrap="true"
       ></label>
-      <label class="champ-title" [text]="champTitle" textWrap="true"></label>
+      <label class="champ-title" [text]="champTitle" textWrap="true"></label> -->
 
-      <StackLayout orientation="horizontal" horizontalAlignment="center">
+      <StackLayout
+        class="button-container"
+        orientation="horizontal"
+        horizontalAlignment="center"
+      >
         <button
           [text]="buttonText"
-          class="btn btn-primary"
+          class="btn btn-primary reroll-button"
           (tap)="reroll()"
         ></button>
 
         <button
           [text]="allRandomBtnText"
-          class="btn btn-primary"
+          class="btn btn-primary all-rand-button"
           (tap)="goToAllRandom()"
         ></button>
       </StackLayout>

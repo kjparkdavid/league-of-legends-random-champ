@@ -14,14 +14,24 @@ import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { ChampionService } from './shared/champions/champions.service';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { BuildService } from './shared/build/build.service';
-import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {
+  TranslateService,
+  TranslateModule,
+  TranslateLoader,
+} from '@ngx-translate/core';
 import { NativeScriptLoader } from '@danvick/ngx-translate-nativescript-loader';
 
 import { default as EN } from './i18n/en';
 import { default as KO } from './i18n/ko';
 
+import { registerElement } from 'nativescript-angular';
+registerElement(
+  'WebImage',
+  () => require('nativescript-web-image-cache').WebImage
+);
+
 export function createTranslateLoader() {
-  return new NativeScriptLoader("./i18n/", ".json");
+  return new NativeScriptLoader('./i18n/', '.json');
 }
 
 @NgModule({
@@ -35,10 +45,10 @@ export function createTranslateLoader() {
     NativeScriptRouterModule.forRoot(routes),
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: createTranslateLoader
-      }
-  })
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+      },
+    }),
   ],
   providers: [ChampionService, BuildService],
   bootstrap: [AppComponent],

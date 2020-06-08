@@ -1,35 +1,94 @@
+$dark-orange: #c39034;
+$light-orange: #dc9a22;
+$emerald: #15bc9d;
+$dark-blue: #11569a;
+
+ScrollView {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('~/assets/images/background.png');
+}
+
 FlexboxLayout {
   justify-content: center;
   align-items: center;
-  /* background-size: cover;
-  background-image: url("~/images/background.jpg"); */
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  color: $dark-orange;
 }
 
-.champ-image {
+.title-random {
+  font-size: 32px;
+  color: $emerald;
+  text-align: center;
+}
+
+.champ-image-container {
   width: 50%;
   z-index: 5;
 }
+
+.champ-image {
+  height: 547px;
+  margin-top: 42px;
+}
+
 .champ-name {
   font-weight: bold;
   font-size: 24px;
   text-align: center;
+  color: $light-orange;
+  z-index: 2;
+  margin-top: 16px;
 }
 .champ-title {
   text-align: center;
+  color: $light-orange;
   font-size: 16px;
 }
 
 .fas {
-  font-family: "FontAwesome", "fontawesome-webfont";
+  font-family: 'FontAwesome', 'fontawesome-webfont';
+  color: $dark-orange;
 }
 
 .right-arrow {
   font-size: 32px;
   margin-left: 48px;
+}
+
+.button-container {
+  margin-top: 32px;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 8px 46px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 16px;
+  cursor: pointer;
+  box-shadow: 9px 8px 2px #00000029;
+  border-radius: 8px;
+}
+
+.reroll-button {
+  background-color: $emerald;
+}
+
+.all-rand-button {
+  background-color: $dark-blue;
 }

@@ -29,10 +29,12 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
   champTitle = '';
   buttonText = '';
   allRandomBtnText = '';
+  pageTitleRandom = '';
   pageTitle = '';
   isLoading = true;
   randChamp: Champion;
   faIcon = faAngleDoubleRight;
+  loadingGifURL = 'https://media.giphy.com/media/KKCuBooszlPG0/giphy.gif';
 
   @ViewChild('dragImage', { static: false }) dragImage: ElementRef;
   dragImageItem: Image;
@@ -42,6 +44,8 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
   @ViewChild('container', { static: false }) container: ElementRef;
   itemContainer: FlexboxLayout;
 
+  @ViewChild('champImage', { static: false }) champImage: any;
+
   constructor(
     private router: Router,
     private randChampService: ChampionService, // private page: Page
@@ -49,7 +53,10 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef,
     private page: Page
   ) {
-    this.pageTitle = translate.instant('randomSelectScreen.title');
+    this.pageTitleRandom = translate.instant(
+      'randomSelectScreen.titleMobileRand'
+    );
+    this.pageTitle = translate.instant('randomSelectScreen.titleMobile');
     this.buttonText = translate.instant('randomSelectScreen.reRollButton');
     this.allRandomBtnText = translate.instant(
       'randomSelectScreen.allRandomButton'
@@ -76,6 +83,10 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     this.dragImageItem.translateY = 0;
     this.dragImageItem.scaleX = 1;
     this.dragImageItem.scaleY = 1;
+
+    this.isLoading = this.container.nativeElement.isLoading;
+    console.log(this.isLoading);
+    this.cdr.detectChanges();
   }
 
   // tns specific code

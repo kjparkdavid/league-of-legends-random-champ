@@ -1,6 +1,8 @@
 export default {
   randomSelectScreen: {
     title: '<span class="title-random">RANDOM</span> League Champion Generator',
+    titleMobileRand: 'RANDOM',
+    titleMobile: 'League Champion Generator',
     reRollButton: 'Re-roll',
     allRandomButton: 'All Random',
   },
