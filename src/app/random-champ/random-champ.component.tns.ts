@@ -18,6 +18,7 @@ import { FlexboxLayout } from 'tns-core-modules/ui/layouts/flexbox-layout';
 import { AnimationCurve } from 'tns-core-modules/ui/enums';
 import { initialize } from 'nativescript-web-image-cache';
 import { isAndroid, screen } from 'tns-core-modules/platform';
+import * as Admob from 'nativescript-admob';
 
 @Component({
   selector: 'random-champ',
@@ -26,6 +27,13 @@ import { isAndroid, screen } from 'tns-core-modules/platform';
   templateUrl: './random-champ.component.html',
 })
 export class RandomChampComponent implements OnInit, AfterViewInit {
+  // private androidBannerId: string = 'ca-app-pub-9441822379589008/3791035306';
+  // private iosBannerId: string = 'ca-app-pub-9441822379589008/7710987060';
+
+  // test banners
+  private androidBannerId: string = 'ca-app-pub-3940256099942544/2934735716';
+  private iosBannerId: string = 'ca-app-pub-3940256099942544/2934735716';
+
   champImg = '';
   champName = '';
   champTitle = '';
@@ -36,8 +44,8 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
   isLoading = true;
   randChamp: Champion;
   faIcon = faAngleDoubleRight;
-  champImageWidth = screen.mainScreen.widthDIPs/1.5;
-  champOverlayWidth = screen.mainScreen.widthDIPs/2;
+  champImageWidth = screen.mainScreen.widthDIPs / 1.5;
+  champOverlayWidth = screen.mainScreen.widthDIPs / 2;
 
   @ViewChild('dragImage', { static: false }) dragImage: ElementRef;
   dragImageItem: Image;
@@ -91,12 +99,11 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     this.dragImageItem.translateY = 0;
     this.dragImageItem.scaleX = 1;
     this.dragImageItem.scaleY = 1;
-    
 
-    // const champImageEl = this.champImage;
-    // champImageEl.setAttribute('style', 'width:' + screen.mainScreen.widthDIPs/2 );
-    // console.log(this.champImageWidth);
-
+    // create add banner
+    setTimeout(() => {
+      this.createBanner();
+    }, 1000);
     this.cdr.detectChanges();
   }
 
@@ -152,5 +159,36 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
 
   goToAllRandom() {
     this.router.navigate(['/all-random', { name: this.randChamp.id }]);
+  }
+
+  public createBanner() {
+    Admob.createBanner({
+      testing: true,
+      size: Admob.AD_SIZE.SMART_BANNER,
+      iosBannerId: this.iosBannerId,
+      androidBannerId: this.androidBannerId,
+      iosTestDeviceIds: ['yourTestDeviceUDIDs'],
+      margins: {
+        bottom: 0,
+      },
+    }).then(
+      () => {
+        console.log('admob createBanner done');
+      },
+      (error) => {
+        console.log('admob createBanner error: ' + error);
+      }
+    );
+  }
+
+  public hideBanner() {
+    Admob.hideBanner().then(
+      function () {
+        console.log('admob hideBanner done');
+      },
+      function (error) {
+        console.log('admob hideBanner error: ' + error);
+      }
+    );
   }
 }
