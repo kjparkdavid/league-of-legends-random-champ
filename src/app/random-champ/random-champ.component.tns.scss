@@ -34,22 +34,25 @@ FlexboxLayout {
 }
 
 .champ-image-container {
-  width: 50%;
+  // width: 50%;
   z-index: 5;
 }
 
 .champ-image {
-  height: 547px;
-  margin-top: 42px;
+  // height: 547px;
+  width: 80%;
+  // height: 100%;
+  // margin-top: 20px;
+  margin-bottom: 28;
 }
 
 .champ-name {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 24;
   text-align: center;
   color: $light-orange;
   z-index: 2;
-  margin-top: 16px;
+  margin-bottom: 12;
 }
 .champ-title {
   text-align: center;
@@ -68,7 +71,7 @@ FlexboxLayout {
 }
 
 .button-container {
-  margin-top: 32px;
+  margin-top: 32;
 }
 
 .btn {

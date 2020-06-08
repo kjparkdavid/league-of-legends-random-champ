@@ -16,6 +16,8 @@ import { PanGestureEventData } from 'tns-core-modules/ui/gestures';
 import { Image } from 'tns-core-modules/ui/image';
 import { FlexboxLayout } from 'tns-core-modules/ui/layouts/flexbox-layout';
 import { AnimationCurve } from 'tns-core-modules/ui/enums';
+import { initialize } from 'nativescript-web-image-cache';
+import { isAndroid, screen } from 'tns-core-modules/platform';
 
 @Component({
   selector: 'random-champ',
@@ -34,7 +36,8 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
   isLoading = true;
   randChamp: Champion;
   faIcon = faAngleDoubleRight;
-  loadingGifURL = 'https://media.giphy.com/media/KKCuBooszlPG0/giphy.gif';
+  champImageWidth = screen.mainScreen.widthDIPs/1.5;
+  champOverlayWidth = screen.mainScreen.widthDIPs/2;
 
   @ViewChild('dragImage', { static: false }) dragImage: ElementRef;
   dragImageItem: Image;
@@ -74,6 +77,11 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
 
     //tns specific code
     this.page.actionBarHidden = true;
+
+    // WebImage initialize
+    if (isAndroid) {
+      initialize();
+    }
   }
 
   ngAfterViewInit() {
@@ -83,9 +91,12 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     this.dragImageItem.translateY = 0;
     this.dragImageItem.scaleX = 1;
     this.dragImageItem.scaleY = 1;
+    
 
-    this.isLoading = this.container.nativeElement.isLoading;
-    console.log(this.isLoading);
+    // const champImageEl = this.champImage;
+    // champImageEl.setAttribute('style', 'width:' + screen.mainScreen.widthDIPs/2 );
+    // console.log(this.champImageWidth);
+
     this.cdr.detectChanges();
   }
 

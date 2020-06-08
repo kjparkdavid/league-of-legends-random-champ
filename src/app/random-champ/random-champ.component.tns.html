@@ -24,12 +24,13 @@
         ></label>
       </GridLayout>
 
-      <GridLayout columns="*, auto, *" rows="auto">
+      <GridLayout columns="*, 3*, *" rows="auto">
         <label col="0" text=""></label>
 
         <GridLayout
+          horizontalAlignment="center"
           columns="*"
-          rows="auto, auto"
+          rows="*, auto"
           col="1"
           #dragImage
           (pan)="onPan($event)"
@@ -39,6 +40,7 @@
             #champImage
             row="0"
             col="0"
+            rowSpan="2"
             [src]="champImg"
             stretch="aspectFit"
             class="champ-image"
@@ -55,13 +57,12 @@
           ></image> -->
 
           <label
-            *ngIf="!isLoading"
             col="0"
             row="1"
             class="champ-name"
             [text]="champName"
             textWrap="true"
-            verticalAlignment="top"
+            verticalAlignment="bottom"
           ></label>
 
           <image
@@ -69,11 +70,10 @@
             row="0"
             rowSpan="2"
             verticalAlignment="top"
+            [width]="champOverlayWidth"
             class="overlay"
             src="~/assets/images/BORDER2.png"
           ></image>
-
-          
         </GridLayout>
 
         <label
