@@ -1,4 +1,5 @@
 <div class="page-container">
+  <img class="logo" src="../../assets/images/LOGO.png" />
   <div class="left-div">
     <fa-icon
       role="button"
@@ -29,7 +30,7 @@
       </div>
     </div>
 
-    <h2 *ngIf="!isLoading">{{ conceptText }}</h2>
+    <h2 class="item-build" *ngIf="!isLoading">{{ conceptText }}</h2>
 
     <button *ngIf="!isLoading" class="restart-button" (click)="restart()">
       <fa-icon
@@ -41,9 +42,9 @@
       {{ restartButtonText }}
     </button>
 
-    <button *ngIf="!isLoading" class="restart-button" (click)="restart()">
+    <!-- <button *ngIf="!isLoading" class="restart-button" (click)="restart()">
       Customize Builds
-    </button>
+    </button> -->
   </div>
   <div class="left-div"></div>
 </div>
