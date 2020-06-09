@@ -16,9 +16,16 @@ import { PanGestureEventData } from 'tns-core-modules/ui/gestures';
 import { Image } from 'tns-core-modules/ui/image';
 import { FlexboxLayout } from 'tns-core-modules/ui/layouts/flexbox-layout';
 import { AnimationCurve } from 'tns-core-modules/ui/enums';
-import { initialize } from 'nativescript-web-image-cache';
+import { initialize as WebImageInit } from 'nativescript-web-image-cache';
 import { isAndroid, screen } from 'tns-core-modules/platform';
 import { AdmobService } from '../shared/admob/admob.service.tns';
+import { RouterExtensions } from 'nativescript-angular/router';
+
+import {
+  on as applicationOn,
+  ApplicationEventData,
+  resumeEvent,
+} from 'tns-core-modules/application';
 
 @Component({
   selector: 'random-champ',
@@ -37,7 +44,6 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
   isLoading = true;
   randChamp: Champion;
   faIcon = faAngleDoubleRight;
-  champImageWidth = screen.mainScreen.widthDIPs / 1.5;
   champOverlayWidth = screen.mainScreen.widthDIPs / 2;
 
   @ViewChild('dragImage', { static: false }) dragImage: ElementRef;
@@ -56,6 +62,7 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     private translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private page: Page,
+    private routerExtensions: RouterExtensions,
     private admob: AdmobService
   ) {
     this.pageTitleRandom = translate.instant(
@@ -66,6 +73,23 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     this.allRandomBtnText = translate.instant(
       'randomSelectScreen.allRandomButton'
     );
+
+    // Listen to activity resume, called when App is opened back from background
+    applicationOn(resumeEvent, (args: ApplicationEventData) => {
+      if (args.android) {
+        // For Android applications, args.android is an android.content.Intent class.
+        // console.log(
+        //   'Launched Android application with the following intent: ' +
+        //     args.android +
+        //     '.'
+        // );
+        this.createBanner();
+      } else if (args.ios !== undefined) {
+        // For iOS applications, args.ios is NSDictionary (launchOptions).
+        console.log('Launched iOS application with options: ' + args.ios);
+        this.createBanner();
+      }
+    });
   }
 
   ngOnInit() {
@@ -79,10 +103,16 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
 
     //tns specific code
     this.page.actionBarHidden = true;
+    // this.page.backgroundSpanUnderStatusBar = false;
+
+    // When coming back to this page
+    this.page.on(Page.navigatedToEvent, () => {
+      this.createBanner();
+    });
 
     // WebImage initialize
     if (isAndroid) {
-      initialize();
+      WebImageInit();
     }
   }
 
@@ -94,11 +124,15 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
     this.dragImageItem.scaleX = 1;
     this.dragImageItem.scaleY = 1;
 
+    // this.createBanner();
+    this.cdr.detectChanges();
+  }
+
+  createBanner() {
     // create add banner
     setTimeout(() => {
       this.admob.createBanner();
     }, 1000);
-    this.cdr.detectChanges();
   }
 
   // tns specific code
@@ -152,6 +186,16 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
   }
 
   goToAllRandom() {
-    this.router.navigate(['/all-random', { name: this.randChamp.id }]);
+    this.routerExtensions.navigate(
+      ['/all-random', { name: this.randChamp.id }],
+      {
+        animated: true,
+        transition: {
+          name: 'slideLeft',
+          duration: 200,
+          curve: 'linear',
+        },
+      }
+    );
   }
 }
