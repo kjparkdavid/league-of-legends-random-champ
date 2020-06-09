@@ -103,7 +103,6 @@ export class RandomChampComponent implements OnInit, AfterViewInit {
 
     //tns specific code
     this.page.actionBarHidden = true;
-    // this.page.backgroundSpanUnderStatusBar = false;
 
     // When coming back to this page
     this.page.on(Page.navigatedToEvent, () => {

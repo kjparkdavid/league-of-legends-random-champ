@@ -3,16 +3,15 @@ $light-orange: #dc9a22;
 $emerald: #15bc9d;
 $dark-blue: #11569a;
 
-ScrollView {
+FlexboxLayout {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-image: url('~/assets/images/background.png');
 }
 
-FlexboxLayout {
-  justify-content: center;
-  align-items: center;
+.content-container {
+  margin-top: 50px;
 }
 
 .logo {
@@ -34,15 +33,11 @@ FlexboxLayout {
 }
 
 .champ-image-container {
-  // width: 50%;
   z-index: 5;
 }
 
 .champ-image {
-  // height: 547px;
   width: 80%;
-  // height: 100%;
-  // margin-top: 20px;
   margin-bottom: 28;
 }
 
